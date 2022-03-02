@@ -32,3 +32,29 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## 개발 범위
+
+### `/books/:id`
+
+- 해당 GIST ID에 저장된 책 목록 가져오기
+
+### `/books/my`
+
+- 현재 로그인 되어있는 깃헙 계정의 책 목록 보여주기
+- 책 목록 추가 기능 (사이드바 or 모달)
+
+  - 책 목록 인피니티 스크롤
+  - 책 선택 후 책 목록에 추가됨
+  - 저장 버튼 눌러에 Gist에 저장됨
+  - 자동 저장 5초 쓰로틀
+  - 저장 안 된 상태에서 페이지 못나가게 beforeunload 설정
+
+- 책 목록 삭제 기능
+- 책 목록 못 찾으면
+  - 책 목록 추가 버튼
+  - GIST 탐색 모달
+
+### `/login`
+
+- 깃헙 로그인 페이지
