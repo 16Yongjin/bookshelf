@@ -17,6 +17,8 @@ const BookCover = styled.div`
 
   box-shadow: 5px 5px 8px 0px rgba(151, 146, 153, 0.6);
 
+  cursor: pointer;
+
   &:hover {
     transform: perspective(500px) rotate3d(0, 1, 0, 30deg);
 
