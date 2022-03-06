@@ -14,3 +14,14 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.text-clamp {
+  word-break: break-all;
+  overflow-wrap: break-all;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+
+  /* -webkit-line-clamp: 2; */
+}

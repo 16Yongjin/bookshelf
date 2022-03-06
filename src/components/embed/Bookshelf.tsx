@@ -2,7 +2,7 @@
 import React from 'react'
 import type { Bookshelf } from '../../store/modules/bookshelf/bookshelfAPI'
 import styled from '@emotion/styled'
-import { css } from '@emotion/react'
+import { EmbedBookCover } from './BookCover'
 
 const BookshelfContinaer = styled.div`
   display: flex;
@@ -26,53 +26,6 @@ const BooksContainer = styled.div`
   margin: 0 auto;
 `
 
-const BookCover = styled.div`
-  position: relative;
-  width: 120px;
-  height: 174px;
-  transform-style: preserve-3d;
-  transition: transform 0.3s;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  box-shadow: 5px 5px 8px 0px rgba(151, 146, 153, 0.6);
-
-  &:hover {
-    transform: perspective(500px) rotate3d(0, 1, 0, 30deg);
-
-    .book-fore-edge {
-      transform: translate3d(-20px, 0, 0);
-    }
-  }
-`
-
-const BookSpine = styled.div`
-  position: absolute;
-  top: 0px;
-  left: -14px;
-  transform: translate3d(7px, 0, -7px) rotate3d(0, 1, 0, -90deg);
-  height: 174px;
-  width: 14px;
-  overflow: hidden;
-  border-right: 1px solid #ddd;
-`
-
-const BookForeEdge = styled.div`
-  z-index: -2;
-  position: absolute;
-  width: 10px;
-  height: 174px;
-  top: 0;
-  right: -10px;
-  border-top: 6px solid transparent;
-  border-bottom: 8px solid transparent;
-  border-left: 4px solid white;
-  opacity: 0.75;
-  transition: transform 0.3s;
-`
-
 interface EmbedBookshelfViewProps {
   bookshelf: Bookshelf
 }
@@ -89,34 +42,7 @@ export const EmbedBookshelfView: React.FC<EmbedBookshelfViewProps> = ({
         ) : (
           <BooksContainer>
             {bookshelf.books.map((book, index) => (
-              <BookCover key={book.isbn + index}>
-                <img
-                  className="book-cover"
-                  src={book.thumbnail}
-                  loading="lazy"
-                  alt={book.title}
-                  css={css`
-                    width: 120px;
-                    height: 174px;
-                  `}
-                />
-
-                <BookSpine>
-                  <img
-                    css={css`
-                      width: 120px;
-                      height: 174px;
-                      filter: blur(1px);
-                    `}
-                    className="book-cover"
-                    src={book.thumbnail}
-                    loading="lazy"
-                    alt={book.title}
-                  />
-                </BookSpine>
-
-                <BookForeEdge className="book-fore-edge"></BookForeEdge>
-              </BookCover>
+              <EmbedBookCover key={book.isbn + index} book={book} />
             ))}
           </BooksContainer>
         )}
