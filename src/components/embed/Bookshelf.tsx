@@ -17,9 +17,8 @@ const BooksContainer = styled.div`
   justify-content: center;
   gap: 3rem 2rem;
 
-  /* background: url('shelf.svg'); */
+  background-image: url('/shelf.svg');
   background-repeat: repeat-y;
-  /* background-position: center; */
   background-size: 100% calc(174px + 3rem);
   padding-bottom: 1rem;
 
@@ -32,15 +31,13 @@ const BookCover = styled.div`
   width: 120px;
   height: 174px;
   transform-style: preserve-3d;
+  transition: transform 0.3s;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
-  transition: transform 0.3s;
   box-shadow: 5px 5px 8px 0px rgba(151, 146, 153, 0.6);
-
-  /* animation: rotate 5s linear infinite; */
 
   &:hover {
     transform: perspective(500px) rotate3d(0, 1, 0, 30deg);
@@ -49,16 +46,6 @@ const BookCover = styled.div`
       transform: translate3d(-20px, 0, 0);
     }
   }
-  /* 
-  @keyframes rotate {
-    0% {
-      transform: rotate3d(0, 1, 0, 0deg);
-    }
-
-    100% {
-      transform: rotate3d(0, 1, 0, 360deg);
-    }
-  } */
 `
 
 const BookSpine = styled.div`
@@ -100,18 +87,7 @@ export const EmbedBookshelfView: React.FC<EmbedBookshelfViewProps> = ({
         {!bookshelf.books.length ? (
           <div>책장에 비었어요.</div>
         ) : (
-          <BooksContainer
-            style={{
-              backgroundImage: `url('data:image/svg+xml;utf-8,
-                <svg width="100%" height="100%" viewBox="0 0 200 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M 15 172 H 190 L 190 140 H 10 Z" style="filter: drop-shadow(0px 15px 4px rgb(0 0 0 / 0.3));" width="90%" height="2rem" fill="rgb(230,221,207)"/>
-                <path d="M 0 164 H 200 L 190 140 H 10 Z" fill="rgb(230, 221, 207)" />
-                <rect width="100%" height="0.5rem" y="164px" stroke="rba(193, 193, 193)" fill="rgb(241, 238, 232)" />
-                </svg>')`
-                .replace(/\n/g, '')
-                .replace(/\s\s/g, ''),
-            }}
-          >
+          <BooksContainer>
             {bookshelf.books.map((book, index) => (
               <BookCover key={book.isbn + index}>
                 <img
