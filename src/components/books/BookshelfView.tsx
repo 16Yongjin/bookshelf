@@ -39,8 +39,8 @@ export const BookshelfView: React.FC<BookshelfViewProps> = ({
     <BookshelfContinaer>
       <h2>{bookshelf.name}</h2>
       <div>
-        {!bookshelf.books ? (
-          <div>책장에 책이 없습니다.</div>
+        {!bookshelf.books.length ? (
+          <div>책장에 비었어요.</div>
         ) : (
           <BooksContainer>
             {bookshelf.books.map((book, index) => (
