@@ -8,6 +8,9 @@ const FILE_NAME = 'my-bookshelf.json'
 export type Bookshelf = {
   id: string
   name: string
+  username: string
+  createdAt: Date
+  updatedAt: Date
   books: Book[]
 }
 
@@ -52,6 +55,9 @@ export class BookshelfAPI {
     const bookshelf: Bookshelf = {
       id: '',
       name: `${username}의 책장`,
+      username,
+      createdAt: new Date(),
+      updatedAt: new Date(),
       books: [],
     }
     const result = await this.octokit.request(`POST /gists`, {
@@ -80,7 +86,7 @@ export class BookshelfAPI {
     return this.octokit.request(`PATCH /gists/${bookshelf.id}`, {
       files: {
         [FILE_NAME]: {
-          content: JSON.stringify(bookshelf),
+          content: JSON.stringify({ ...bookshelf, updatedAt: new Date() }),
         },
       },
     })
