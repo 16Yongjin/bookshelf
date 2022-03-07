@@ -1,48 +1,31 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 온라인 책장 서비스 (개발중)
 
-## Getting Started
+![KakaoTalk_20220306_230026971](https://user-images.githubusercontent.com/22253556/157056306-3bd973fb-eca6-4a99-a2c5-4e58ca7afaf8.png)
 
-First, run the development server:
+## 기술 스택
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+- Next.js
+- Redux ToolKit
+- MUI
+- Emotion
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 기능
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- 도서 검색 with 카카오 책 API
+- 깃헙 OAuth 로그인
+- 도서 목록 Gist 저장
+- 임베드용 책장 페이지
 
 ## 개발 범위
 
-### `/books/:id`
+### `/embed/:username/:id`
 
-- 해당 GIST ID에 저장된 책 목록 가져오기
+- 해당 GIST에 저장된 책 목록 가져오기
 
 ### `/books/my`
 
 - 현재 로그인 되어있는 깃헙 계정의 책 목록 보여주기
-- 책 목록 추가 기능 (사이드바 or 모달)
+- 책장 추가 기능 (사이드바 or 모달)
 
   - 책 목록 인피니티 스크롤
   - 책 선택 후 책 목록에 추가됨
@@ -50,8 +33,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
   - 자동 저장 5초 쓰로틀
   - 저장 안 된 상태에서 페이지 못나가게 beforeunload 설정
 
-- 책 목록 삭제 기능
-- 책 목록 못 찾으면
+- 책장 삭제 기능
+- 책장 못 찾으면
   - 책 목록 추가 버튼
   - GIST 탐색 모달
 
